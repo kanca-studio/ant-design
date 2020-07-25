@@ -64,6 +64,7 @@ const timestamp = new Date().getTime();
 const themeMap = {
   dark: `/dark.css?${timestamp}`,
   compact: `/compact.css?${timestamp}`,
+  sunflower: `/sunflower.css?${timestamp}`,
 };
 const themeConfig = {
   themeMap,
