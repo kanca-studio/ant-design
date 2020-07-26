@@ -3,6 +3,7 @@ const path = require('path');
 const defaultVars = require('./scripts/default-vars');
 const darkVars = require('./scripts/dark-vars');
 const compactVars = require('./scripts/compact-vars');
+const sunflowerVars = require('./scripts/sunflower-vars');
 
 function generateThemeFileContent(theme) {
   return `const { ${theme}ThemeSingle } = require('./theme');\nconst defaultTheme = require('./default-theme');\n
@@ -86,6 +87,7 @@ function finalizeDist() {
     buildThemeFile('default', defaultVars);
     buildThemeFile('dark', darkVars);
     buildThemeFile('compact', compactVars);
+    buildThemeFile('sunflower', sunflowerVars);
     fs.writeFileSync(
       path.join(process.cwd(), 'dist', `theme.js`),
       `
@@ -106,12 +108,19 @@ function getThemeVariables(options = {}) {
       ...compactThemeSingle
     }
   }
+  if(options.sunflower){
+    themeVar = {
+      ...themeVar,
+      ...sunflowerThemeSingle
+    }
+  }
   return themeVar;
 }
 
 module.exports = {
   darkThemeSingle,
   compactThemeSingle,
+  sunflowerThemeSingle,
   getThemeVariables
 }`,
       {

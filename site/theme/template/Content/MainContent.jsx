@@ -293,6 +293,7 @@ class MainContent extends Component {
           { type: 'default', text: formatMessage({ id: 'app.theme.switch.default' }) },
           { type: 'dark', text: formatMessage({ id: 'app.theme.switch.dark' }) },
           { type: 'compact', text: formatMessage({ id: 'app.theme.switch.compact' }) },
+          { type: 'sunflower', text: formatMessage({ id: 'app.theme.switch.sunflower' }) },
         ].map(({ type, text }) => (
           <Menu.Item key={type}>{text}</Menu.Item>
         ))}
